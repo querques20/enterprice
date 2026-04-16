@@ -150,19 +150,20 @@ nav {
 /* ── HERO ───────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  padding: clamp(96px,10vw,136px) var(--pad) clamp(48px,5vw,72px);
+  gap: clamp(40px,6vw,80px);
+  padding: clamp(110px,12vw,152px) var(--pad) clamp(80px,8vw,112px);
   overflow: hidden;
   background: var(--bg);
 }
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 780px;
+  max-width: 560px;
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 .hero-bg-symbol {
   position: absolute;
@@ -188,7 +189,7 @@ nav {
   margin-bottom: 18px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 14px;
 }
 .hero-eyebrow-line {
@@ -219,12 +220,12 @@ nav {
   line-height: 1.85;
   color: var(--muted);
   max-width: 52ch;
-  margin: 0 auto 28px;
+  margin: 0 0 28px;
 }
 .hero-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
   flex-wrap: wrap;
   margin-bottom: 0;
@@ -288,13 +289,11 @@ nav {
 .hero-photos {
   position: relative;
   width: 100%;
-  max-width: 680px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   gap: clamp(10px,1.5vw,20px);
-  margin-top: clamp(36px,4vw,56px);
-  height: clamp(220px,24vw,340px);
+  height: clamp(340px,40vw,540px);
 }
 .photo-pill {
   position: relative;
@@ -309,22 +308,22 @@ nav {
   object-fit: cover;
 }
 .photo-pill-1 {
-  width: clamp(120px,11vw,168px);
-  height: clamp(180px,18vw,270px);
-  transform: translateY(-32px);
+  width: clamp(130px,12vw,185px);
+  height: clamp(210px,22vw,310px);
+  transform: translateY(-48px);
   filter: sepia(6%);
 }
 .photo-pill-2 {
-  width: clamp(140px,13vw,196px);
-  height: clamp(210px,21vw,310px);
+  width: clamp(155px,14vw,215px);
+  height: clamp(260px,28vw,390px);
   transform: translateY(0);
   filter: sepia(6%);
   z-index: 2;
 }
 .photo-pill-3 {
-  width: clamp(120px,11vw,168px);
-  height: clamp(180px,18vw,270px);
-  transform: translateY(-20px);
+  width: clamp(130px,12vw,185px);
+  height: clamp(210px,22vw,310px);
+  transform: translateY(-28px);
   filter: sepia(6%);
 }
 .pill-caption {
@@ -843,6 +842,11 @@ footer nav { position: static; padding: 0; pointer-events: auto; height: auto; b
 
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; text-align: center; gap: 0; padding-bottom: clamp(48px,5vw,72px); }
+  .hero-content { max-width: 780px; text-align: center; }
+  .hero-eyebrow { justify-content: center; }
+  .hero-sub { margin: 0 auto 28px; }
+  .hero-actions { justify-content: center; }
   .hero-photos { display: none; }
   .lib-grid { grid-template-columns: 1fr; }
   .ft-top { grid-template-columns: 1fr 1fr; }
