@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto — Empoderamiento Docente</title>
+<title>Servicios — Empoderamiento Docente</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -43,63 +43,69 @@ nav { position: fixed; top: 16px; left: 0; right: 0; z-index: 100; padding: 0 cl
 .nav-links a.nav-cta { background: var(--v); color: white; padding: 8px 22px; border-radius: 99px; text-transform: none; letter-spacing: 0.08em; transition: background 220ms, transform 220ms, box-shadow 220ms; }
 .nav-links a.nav-cta::after { display: none; }
 .nav-links a.nav-cta:hover { background: var(--v-d); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(98,69,168,0.4); color: white; }
-.nav-links a.nav-cta.active { background: var(--v-d); box-shadow: inset 0 2px 6px rgba(0,0,0,0.20); }
 
-/* ── CONTACT PAGE (HERO + FORM) ─────────────────────────────── */
-.contact-page { background: var(--bg); padding: clamp(120px,14vw,180px) var(--pad) clamp(80px,9vw,128px); border-bottom: 1px solid var(--border); }
-.contact-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 2fr 3fr; gap: clamp(56px,7vw,100px); align-items: start; }
+/* ── PAGE HERO ──────────────────────────────────────────────── */
+.page-hero { background: var(--bg); padding: clamp(120px,14vw,180px) var(--pad) clamp(64px,7vw,96px); text-align: center; border-bottom: 1px solid var(--border); }
+.page-hero-eyebrow { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--v); margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+.page-hero-eyebrow::before, .page-hero-eyebrow::after { content: ''; width: 32px; height: 1.5px; background: var(--v); }
+.page-hero-h { font-family: var(--fd); font-size: clamp(52px,6vw,88px); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 28px; max-width: 900px; margin-left: auto; margin-right: auto; }
+.page-hero-sub { font-family: var(--fb); font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 52ch; margin: 0 auto; }
 
-/* Left column — text */
-.contact-text { padding-top: 8px; }
-.contact-eyebrow { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--v); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
-.contact-eyebrow::before { content: ''; width: 32px; height: 1.5px; background: var(--v); }
-.contact-h { font-family: var(--fd); font-size: clamp(38px,4.5vw,68px); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 24px; }
-.contact-sub { font-family: var(--fb); font-size: 15px; font-weight: 300; line-height: 1.75; color: var(--muted); margin-bottom: 40px; }
-.contact-info-items { display: flex; flex-direction: column; gap: 14px; }
-.contact-info-item { display: flex; align-items: flex-start; gap: 12px; }
-.contact-info-icon { width: 28px; height: 28px; border-radius: 8px; background: var(--v-bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-.contact-info-icon svg { width: 14px; height: 14px; fill: none; stroke: var(--v); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.contact-info-text { display: flex; flex-direction: column; gap: 2px; }
-.contact-info-label { font-family: var(--fs); font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--faint); }
-.contact-info-value { font-family: var(--fb); font-size: 14px; color: var(--ink); }
+/* ── SVC NAV ANCHORS ────────────────────────────────────────── */
+.svc-nav-anchors { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 36px; }
+.svc-nav-anchors a { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); background: var(--white); border: 1px solid var(--border); padding: 8px 18px; border-radius: 99px; transition: color 200ms, border-color 200ms, background 200ms; }
+.svc-nav-anchors a:hover { color: var(--v); border-color: rgba(98,69,168,0.30); background: var(--v-bg); }
 
-/* Right column — form */
-.contact-form-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: clamp(32px,4vw,52px); box-shadow: 0 4px 28px rgba(98,69,168,0.07); }
-.contact-form-title { font-family: var(--fd); font-size: clamp(20px,2vw,28px); font-weight: 400; color: var(--ink); margin-bottom: 32px; }
-.contact-form { display: flex; flex-direction: column; gap: 20px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.form-group { display: flex; flex-direction: column; gap: 8px; }
-.form-group label { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--muted); }
-.form-group input,
-.form-group select,
-.form-group textarea { background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px; padding: 12px 16px; font-family: var(--fb); font-size: 14px; color: var(--ink); outline: none; transition: border-color 200ms, box-shadow 200ms; resize: none; width: 100%; -webkit-appearance: none; }
-.form-group input::placeholder,
-.form-group textarea::placeholder { color: var(--faint); }
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus { border-color: var(--v); box-shadow: 0 0 0 3px rgba(98,69,168,0.12); background: var(--white); }
-.btn-primary { display: inline-block; background: var(--v); color: var(--white); padding: 16px 40px; border-radius: 99px; font-family: var(--fs); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer; transition: background 220ms, transform 220ms, box-shadow 220ms; align-self: flex-start; }
-.btn-primary:hover { background: var(--v-d); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(98,69,168,0.35); }
-.form-note { font-family: var(--fb); font-size: 12px; color: var(--faint); line-height: 1.5; }
-
-@media (max-width: 900px) {
-  .contact-inner { grid-template-columns: 1fr; }
-  .contact-text { padding-top: 0; }
-}
-@media (max-width: 540px) {
-  .form-row { grid-template-columns: 1fr; }
+/* ── SVC DETAIL — servicio individual ──────────────────────── */
+.svc-detail { background: var(--bg); padding: clamp(72px,8vw,112px) var(--pad); position: relative; overflow: hidden; border-top: 1px solid var(--border); }
+.svc-detail.alt { background: var(--white); }
+.svc-detail-ghost { position: absolute; font-family: var(--fd); font-size: clamp(140px,18vw,240px); font-weight: 300; color: rgba(98,69,168,0.055); top: 50%; right: var(--pad); transform: translateY(-50%); line-height: 1; pointer-events: none; user-select: none; }
+.svc-detail.alt .svc-detail-ghost { right: auto; left: var(--pad); }
+.svc-detail-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,88px); align-items: start; position: relative; }
+.svc-detail.alt .svc-detail-text { order: 2; }
+.svc-detail.alt .svc-detail-box  { order: 1; }
+.svc-detail-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.svc-detail-tag { font-family: var(--fs); font-size: 9px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; background: var(--v-bg); color: var(--v); padding: 4px 12px; border-radius: 20px; }
+.svc-detail-title { font-family: var(--fd); font-size: clamp(26px,3vw,40px); font-weight: 300; line-height: 1.15; color: var(--ink); margin-bottom: 20px; }
+.svc-detail-desc { font-family: var(--fb); font-size: 15px; color: var(--muted); line-height: 1.72; margin-bottom: 28px; }
+.svc-detail-meta { display: flex; flex-direction: column; gap: 14px; }
+.svc-detail-meta-label { font-family: var(--fs); font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 5px; }
+.svc-detail-meta-text { font-family: var(--fb); font-size: 13px; color: var(--muted); line-height: 1.5; }
+.svc-detail-box { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: clamp(24px,3vw,36px); }
+.svc-detail.alt .svc-detail-box { background: var(--bg); }
+.svc-detail-box-label { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--faint); border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 20px; }
+.svc-detail-includes { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.svc-detail-includes li { font-family: var(--fb); font-size: 14px; color: var(--ink); line-height: 1.5; padding-left: 24px; position: relative; }
+.svc-detail-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--v); font-weight: 700; font-size: 13px; top: 1px; }
+.svc-detail-topics { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+.svc-detail-topics-label { font-family: var(--fs); font-size: 9px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--faint); margin-bottom: 10px; }
+.svc-detail-topics-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.svc-detail-topics-pills span { font-family: var(--fb); font-size: 12px; color: var(--muted); background: var(--bg-2); padding: 4px 12px; border-radius: 20px; }
+@media (max-width: 768px) {
+  .svc-detail-inner { grid-template-columns: 1fr; }
+  .svc-detail.alt .svc-detail-text { order: unset; }
+  .svc-detail.alt .svc-detail-box  { order: unset; }
+  .svc-detail-ghost { display: none; }
 }
 
-/* ── INFO BAR ────────────────────────────────────────────────── */
-.contact-info-bar { background: var(--bg-2); padding: clamp(64px,8vw,96px) var(--pad); border-bottom: 1px solid var(--border); }
-.info-bar-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(32px,4vw,64px); }
-.info-col { }
-.info-col-label { font-family: var(--fs); font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1.5px solid rgba(98,69,168,0.14); }
-.info-col-title { font-family: var(--fd); font-size: clamp(18px,1.8vw,24px); font-weight: 400; color: var(--ink); margin-bottom: 8px; line-height: 1.25; }
-.info-col-text { font-family: var(--fb); font-size: 13px; color: var(--muted); line-height: 1.65; }
-.info-col-link { display: inline-flex; align-items: center; gap: 6px; font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--v); margin-top: 12px; transition: gap 200ms; }
-.info-col-link:hover { gap: 10px; }
-@media (max-width: 768px) { .info-bar-inner { grid-template-columns: 1fr; gap: 40px; } }
+/* ── CÓMO TRABAJAMOS ────────────────────────────────────────── */
+.como-trabajamos { background: var(--bg-2); padding: clamp(72px,8vw,112px) var(--pad); border-top: 1px solid var(--border); }
+.como-inner { max-width: var(--max); margin: 0 auto; }
+.como-top { max-width: 600px; margin-bottom: clamp(48px,5vw,72px); }
+.como-label { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--v); margin-bottom: 16px; }
+.como-h { font-family: var(--fd); font-size: clamp(28px,3.5vw,46px); font-weight: 300; line-height: 1.15; color: var(--ink); }
+.metodo-steps { display: flex; align-items: flex-start; }
+.metodo-step { flex: 1; padding: 24px 32px 24px 0; }
+.metodo-step:not(:first-child) { padding-left: 32px; }
+.metodo-step:not(:last-child) { border-right: 1px solid var(--border); }
+.metodo-step-num { font-family: var(--fd); font-size: 72px; font-weight: 300; color: var(--v-bg); line-height: 1; margin-bottom: 16px; }
+.metodo-step-title { font-family: var(--fs); font-size: 11px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: var(--ink); margin-bottom: 10px; }
+.metodo-step-desc { font-family: var(--fb); font-size: 13px; color: var(--muted); line-height: 1.65; }
+@media (max-width: 768px) {
+  .metodo-steps { flex-direction: column; }
+  .metodo-step { padding: 24px 0; border-right: none !important; border-bottom: 1px solid var(--border); }
+  .metodo-step:last-child { border-bottom: none; }
+}
 
 /* ── CTA ────────────────────────────────────────────────────── */
 .cta { background: var(--v); padding: clamp(100px,12vw,180px) var(--pad); text-align: center; position: relative; overflow: hidden; }
@@ -131,6 +137,7 @@ footer nav { position: static; padding: 0; pointer-events: auto; height: auto; b
 @media (max-width: 600px) {
   .nav-links a:not(.nav-cta) { display: none; }
   .ft-top { grid-template-columns: 1fr; }
+  .svc-nav-anchors a { font-size: 9px; padding: 7px 14px; }
 }
 </style>
 </head>
@@ -145,127 +152,207 @@ footer nav { position: static; padding: 0; pointer-events: auto; height: auto; b
     <div class="nav-links">
       <a href="home-v7.html">Inicio</a>
       <a href="nosotros.html">Nosotros</a>
-      <a href="servicios.html">Servicios</a>
+      <a href="servicios.html" class="active">Servicios</a>
       <a href="proyectos.html">Proyectos</a>
-      <a href="contacto.html" class="nav-cta active">Contacto</a>
+      <a href="contacto.html" class="nav-cta">Contacto</a>
     </div>
   </div>
 </nav>
 
 <main>
 
-<!-- ── HERO + FORMULARIO ─────────────────────────────────────── -->
-<section class="contact-page">
-  <div class="contact-inner">
-
-    <!-- Texto izquierdo -->
-    <div class="contact-text">
-      <div class="contact-eyebrow">Contacto</div>
-      <h1 class="contact-h">Contanos qué necesitás.</h1>
-      <p class="contact-sub">Trabajamos con instituciones educativas de toda Latinoamérica. Contanos el contexto y te armamos una propuesta a medida.</p>
-      <div class="contact-info-items">
-        <div class="contact-info-item">
-          <div class="contact-info-icon">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <div class="contact-info-label">Email</div>
-            <div class="contact-info-value">contacto@empoderamientodocente.org</div>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <div class="contact-info-label">Tiempo de respuesta</div>
-            <div class="contact-info-value">48–72 horas hábiles</div>
-          </div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-icon">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div class="contact-info-text">
-            <div class="contact-info-label">Sede</div>
-            <div class="contact-info-value">Buenos Aires · Ciudad de México</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Formulario derecho -->
-    <div class="contact-form-wrap">
-      <div class="contact-form-title">Envianos un mensaje</div>
-      <form class="contact-form" onsubmit="return false;">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="nombre">Nombre completo</label>
-            <input type="text" id="nombre" placeholder="Tu nombre">
-          </div>
-          <div class="form-group">
-            <label for="institucion">Institución</label>
-            <input type="text" id="institucion" placeholder="Nombre de tu institución">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="pais">País</label>
-            <input type="text" id="pais" placeholder="País">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="tu@email.com">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="mensaje">¿Qué necesitás?</label>
-          <textarea id="mensaje" rows="5" placeholder="Contanos brevemente el contexto y lo que estás buscando..."></textarea>
-        </div>
-        <button type="submit" class="btn-primary">Enviar mensaje →</button>
-        <p class="form-note">Solo usamos tus datos para responder tu consulta. Sin newsletters ni spam.</p>
-      </form>
-    </div>
-
+<!-- ── HERO INTERIOR ─────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Lo que hacemos</div>
+  <h1 class="page-hero-h">Cuatro líneas de trabajo, un mismo compromiso.</h1>
+  <p class="page-hero-sub">Diseñamos intervenciones a medida. Cada proceso parte de un diagnóstico real y termina con impacto medible en el aula.</p>
+  <div class="svc-nav-anchors">
+    <a href="#formacion">Formación</a>
+    <a href="#acompanamiento">Acompañamiento</a>
+    <a href="#talleres">Talleres</a>
+    <a href="#cursos">Cursos</a>
   </div>
 </section>
 
-<!-- ── INFO INSTITUCIONAL ─────────────────────────────────────── -->
-<section class="contact-info-bar">
-  <div class="info-bar-inner">
-
-    <div class="info-col">
-      <div class="info-col-label">¿Dónde estamos?</div>
-      <div class="info-col-title">Buenos Aires · Ciudad de México</div>
-      <p class="info-col-text">Operamos en Argentina y México con alcance a toda Latinoamérica. Viajamos a donde el proyecto lo requiera.</p>
+<!-- ── SERVICIO 01 — FORMACIÓN DOCENTE ───────────────────────── -->
+<section class="svc-detail" id="formacion">
+  <div class="svc-detail-ghost">01</div>
+  <div class="svc-detail-inner">
+    <div class="svc-detail-text">
+      <div class="svc-detail-tags">
+        <span class="svc-detail-tag">Presencial</span>
+        <span class="svc-detail-tag">Online</span>
+      </div>
+      <h2 class="svc-detail-title">Programas de desarrollo profesional docente</h2>
+      <p class="svc-detail-desc">Procesos formativos sostenidos en el tiempo, diseñados para equipos docentes de instituciones educativas. Combinamos teoría matemática rigurosa con reflexión sobre la práctica de aula.</p>
+      <div class="svc-detail-meta">
+        <div>
+          <div class="svc-detail-meta-label">Para quién</div>
+          <div class="svc-detail-meta-text">Escuelas primarias y secundarias, instituciones de formación docente, ministerios de educación.</div>
+        </div>
+        <div>
+          <div class="svc-detail-meta-label">Modalidad</div>
+          <div class="svc-detail-meta-text">Presencial intensivo · Online sincrónico · Blended</div>
+        </div>
+      </div>
     </div>
-
-    <div class="info-col">
-      <div class="info-col-label">Con quién trabajamos</div>
-      <div class="info-col-title">Instituciones educativas y equipos docentes</div>
-      <p class="info-col-text">Ministerios, universidades, colegios secundarios y organizaciones que buscan transformar la enseñanza de la matemática.</p>
+    <div class="svc-detail-box">
+      <div class="svc-detail-box-label">Qué incluye</div>
+      <ul class="svc-detail-includes">
+        <li>Diagnóstico inicial del grupo docente</li>
+        <li>Secuencia formativa (4 a 12 meses)</li>
+        <li>Materiales didácticos diseñados ad hoc</li>
+        <li>Observación de clase y retroalimentación</li>
+        <li>Evaluación de impacto al cierre</li>
+      </ul>
     </div>
+  </div>
+</section>
 
-    <div class="info-col">
-      <div class="info-col-label">Seguinos</div>
-      <div class="info-col-title">En redes sociales</div>
-      <p class="info-col-text">Compartimos avances, investigaciones y novedades sobre formación docente en matemática educativa.</p>
-      <a href="#" class="info-col-link">Instagram →</a>
-      <br>
-      <a href="#" class="info-col-link">LinkedIn →</a>
+<!-- ── SERVICIO 02 — ACOMPAÑAMIENTO INSTITUCIONAL ────────────── -->
+<section class="svc-detail alt" id="acompanamiento">
+  <div class="svc-detail-ghost">02</div>
+  <div class="svc-detail-inner">
+    <div class="svc-detail-text">
+      <div class="svc-detail-tags">
+        <span class="svc-detail-tag">Diagnóstico</span>
+        <span class="svc-detail-tag">Curricular</span>
+      </div>
+      <h2 class="svc-detail-title">Acompañamiento curricular y estratégico</h2>
+      <p class="svc-detail-desc">Trabajamos junto a directivos y equipos pedagógicos para diagnosticar el estado de la enseñanza de matemática e implementar mejoras curriculares sostenibles.</p>
+      <div class="svc-detail-meta">
+        <div>
+          <div class="svc-detail-meta-label">Para quién</div>
+          <div class="svc-detail-meta-text">Instituciones educativas que buscan mejorar sus resultados en matemática de forma sistémica.</div>
+        </div>
+        <div>
+          <div class="svc-detail-meta-label">Modalidad</div>
+          <div class="svc-detail-meta-text">Presencial · Visitas periódicas</div>
+        </div>
+      </div>
     </div>
+    <div class="svc-detail-box">
+      <div class="svc-detail-box-label">Qué incluye</div>
+      <ul class="svc-detail-includes">
+        <li>Diagnóstico institucional (docentes, estudiantes, materiales)</li>
+        <li>Diseño o revisión del proyecto curricular de matemática</li>
+        <li>Talleres de actualización para el equipo directivo</li>
+        <li>Seguimiento mensual durante la implementación</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
+<!-- ── SERVICIO 03 — TALLERES ─────────────────────────────────── -->
+<section class="svc-detail" id="talleres">
+  <div class="svc-detail-ghost">03</div>
+  <div class="svc-detail-inner">
+    <div class="svc-detail-text">
+      <div class="svc-detail-tags">
+        <span class="svc-detail-tag">Presencial</span>
+        <span class="svc-detail-tag">Intensivo</span>
+      </div>
+      <h2 class="svc-detail-title">Jornadas temáticas y workshops</h2>
+      <p class="svc-detail-desc">Eventos de corta duración (4 a 16 horas) sobre temas específicos de matemática educativa. Ideales para jornadas institucionales, congresos y espacios de actualización.</p>
+      <div class="svc-detail-meta">
+        <div>
+          <div class="svc-detail-meta-label">Modalidad</div>
+          <div class="svc-detail-meta-text">Presencial · Online</div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-detail-box">
+      <div class="svc-detail-box-label">Qué incluye</div>
+      <ul class="svc-detail-includes">
+        <li>Diseño del taller según el tema y el público</li>
+        <li>Materiales y recursos para los participantes</li>
+        <li>Facilitación a cargo de nuestro equipo</li>
+        <li>Informe de cierre con recomendaciones</li>
+      </ul>
+      <div class="svc-detail-topics">
+        <div class="svc-detail-topics-label">Temas frecuentes</div>
+        <div class="svc-detail-topics-pills">
+          <span>Pensamiento algebraico</span>
+          <span>Modelación matemática</span>
+          <span>Evaluación formativa</span>
+          <span>Tecnologías en el aula</span>
+          <span>Pensamiento estadístico</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICIO 04 — CURSOS ───────────────────────────────────── -->
+<section class="svc-detail alt" id="cursos">
+  <div class="svc-detail-ghost">04</div>
+  <div class="svc-detail-inner">
+    <div class="svc-detail-text">
+      <div class="svc-detail-tags">
+        <span class="svc-detail-tag">Online</span>
+        <span class="svc-detail-tag">Semipresencial</span>
+      </div>
+      <h2 class="svc-detail-title">Formación online a tu propio ritmo</h2>
+      <p class="svc-detail-desc">Cursos estructurados con contenido producido por nuestro equipo de investigación. Disponibles online, con o sin acompañamiento sincrónico.</p>
+      <div class="svc-detail-meta">
+        <div>
+          <div class="svc-detail-meta-label">Modalidad</div>
+          <div class="svc-detail-meta-text">Autogestionado · Semipresencial con tutorías</div>
+        </div>
+      </div>
+    </div>
+    <div class="svc-detail-box">
+      <div class="svc-detail-box-label">Qué incluye</div>
+      <ul class="svc-detail-includes">
+        <li>Acceso a contenido en video y texto</li>
+        <li>Actividades de aplicación en el aula</li>
+        <li>Foros de intercambio entre participantes</li>
+        <li>Certificado de finalización</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── CÓMO TRABAJAMOS ────────────────────────────────────────── -->
+<section class="como-trabajamos">
+  <div class="como-inner">
+    <div class="como-top">
+      <div class="como-label">El proceso</div>
+      <h2 class="como-h">Cuatro etapas de trabajo conjunto.</h2>
+    </div>
+    <div class="metodo-steps">
+      <div class="metodo-step">
+        <div class="metodo-step-num">01</div>
+        <div class="metodo-step-title">Relevamiento</div>
+        <p class="metodo-step-desc">Entendemos el contexto antes de proponer nada.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="metodo-step-num">02</div>
+        <div class="metodo-step-title">Propuesta</div>
+        <p class="metodo-step-desc">Diseñamos una intervención a medida, no un paquete estándar.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="metodo-step-num">03</div>
+        <div class="metodo-step-title">Validación</div>
+        <p class="metodo-step-desc">Piloteamos y ajustamos antes de escalar.</p>
+      </div>
+      <div class="metodo-step">
+        <div class="metodo-step-num">04</div>
+        <div class="metodo-step-title">Entrega</div>
+        <p class="metodo-step-desc">Implementación completa con seguimiento y evaluación.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ── CTA ────────────────────────────────────────────────────── -->
 <section class="cta">
-  <div class="cta-bg-text">contacto</div>
+  <div class="cta-bg-text">empoderamiento</div>
   <div class="cta-inner">
-    <div class="cta-tag">Seguí explorando</div>
-    <h2 class="cta-h">Conocé nuestros<br><em>servicios.</em></h2>
-    <p class="cta-sub">Formación docente, investigación curricular y asesoría institucional. Todo basado en investigación real.</p>
-    <a href="servicios.html" class="cta-btn">Ver servicios →</a>
+    <div class="cta-tag">Trabajemos juntos</div>
+    <h2 class="cta-h">Llevá la matemática educativa<br>a tu <em>institución.</em></h2>
+    <p class="cta-sub">Contanos qué necesitás y te proponemos un camino a medida. Procesos serios, decisiones lentas, resultados reales.</p>
+    <a href="contacto.html" class="cta-btn">Escribinos hoy →</a>
   </div>
 </section>
 
@@ -312,16 +399,33 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Hero entrance on load
-  gsap.from(['.contact-eyebrow', '.contact-h', '.contact-sub', '.contact-info-item'], {
+  // Page hero entrance
+  gsap.from(['.page-hero-eyebrow', '.page-hero-h', '.page-hero-sub', '.svc-nav-anchors'], {
     opacity: 0, y: 24, duration: 0.7, ease: 'power3.out', stagger: 0.10, delay: 0.15
   });
-  gsap.from('.contact-form-wrap', {
-    opacity: 0, y: 32, duration: 0.8, ease: 'power3.out', delay: 0.30
+
+  // Service detail sections
+  document.querySelectorAll('.svc-detail').forEach(function(section) {
+    var isAlt = section.classList.contains('alt');
+    gsap.from(section.querySelector('.svc-detail-text'), {
+      scrollTrigger: { trigger: section, start: 'top 75%' },
+      x: isAlt ? 32 : -32, opacity: 0, duration: 0.75, ease: 'power2.out'
+    });
+    gsap.from(section.querySelector('.svc-detail-box'), {
+      scrollTrigger: { trigger: section, start: 'top 75%' },
+      x: isAlt ? -32 : 32, opacity: 0, duration: 0.75, ease: 'power2.out', delay: 0.1
+    });
   });
 
-  // Info bar
-  reveal('.contact-info-bar', '.info-col', { stagger: 0.12 });
+  // Cómo trabajamos
+  gsap.from('.como-top', {
+    scrollTrigger: { trigger: '.como-trabajamos', start: 'top 80%' },
+    y: 28, opacity: 0, duration: 0.6
+  });
+  gsap.from('.metodo-step', {
+    scrollTrigger: { trigger: '.metodo-steps', start: 'top 80%' },
+    y: 36, opacity: 0, duration: 0.55, ease: 'power2.out', stagger: 0.10
+  });
 
   // CTA
   reveal('.cta', ['.cta-tag', '.cta-h', '.cta-sub', '.cta-btn'], { stagger: 0.10 });
