@@ -1255,14 +1255,47 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   reveal('.colabs', '.colab-item', { y: 12, stagger: 0.05, duration: 0.5 });
-  reveal('.about', ['.about-label','.about-h','.about-pull','.about-p','.about-cta'], { stagger: 0.08 });
-  reveal('.about', '.about-img-wrap', { y: 50, duration: 0.9 });
-  reveal('.about', '.about-quote-float', { y: 24, duration: 0.7, delay: 0.3 });
-  reveal('.services', ['.svc-label','.svc-h'], { stagger: 0.1 });
-  reveal('.services', '.svc-item', { y: 20, stagger: 0.08, duration: 0.65 });
   reveal('.library', ['.lib-label','.lib-h','.lib-sub','.lib-cats','.lib-cta'], { stagger: 0.08 });
   reveal('.library', '.lib-entry', { y: 16, stagger: 0.10 });
   reveal('.cta', ['.cta-tag','.cta-h','.cta-sub','.cta-btn'], { stagger: 0.10 });
+
+  // ── Propuesta de Valor ─────────────────────────────────────────
+  gsap.from(".valor-top", {
+    scrollTrigger: { trigger: ".valor", start: "top 80%" },
+    y: 32, opacity: 0, duration: 0.7, ease: "power2.out"
+  });
+  gsap.from(".pilar", {
+    scrollTrigger: { trigger: ".pilares", start: "top 80%" },
+    y: 40, opacity: 0, duration: 0.6, ease: "power2.out",
+    stagger: 0.12
+  });
+
+  // ── Servicios Destacados ───────────────────────────────────────
+  gsap.from(".svc-cards-top", {
+    scrollTrigger: { trigger: ".svc-cards", start: "top 80%" },
+    y: 28, opacity: 0, duration: 0.6, ease: "power2.out"
+  });
+  gsap.from(".svc-c", {
+    scrollTrigger: { trigger: ".svc-cards-grid", start: "top 85%" },
+    y: 40, opacity: 0, duration: 0.55, ease: "power2.out",
+    stagger: 0.09
+  });
+
+  // ── Nosotros Brief ─────────────────────────────────────────────
+  gsap.from(".brief-text", {
+    scrollTrigger: { trigger: ".brief", start: "top 75%" },
+    x: -32, opacity: 0, duration: 0.75, ease: "power2.out"
+  });
+  gsap.from(".brief-visual", {
+    scrollTrigger: { trigger: ".brief", start: "top 75%" },
+    x: 32, opacity: 0, duration: 0.75, ease: "power2.out", delay: 0.1
+  });
+
+  // ── Publicación Destacada ──────────────────────────────────────
+  gsap.from(".pub-card", {
+    scrollTrigger: { trigger: ".pub", start: "top 80%" },
+    y: 36, opacity: 0, duration: 0.7, ease: "power2.out"
+  });
 
 });
 </script>
