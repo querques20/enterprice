@@ -18,3 +18,5 @@ function compile(tmplFile, outFile) {
 compile('home-v7-template.html', 'home-v7.html');
 compile('nosotros-template.html', 'nosotros.html');
 compile('servicios-template.html', 'servicios.html');
+compile('proyectos-template.html', 'proyectos.html');
+compile('contacto-template.html', 'contacto.html');

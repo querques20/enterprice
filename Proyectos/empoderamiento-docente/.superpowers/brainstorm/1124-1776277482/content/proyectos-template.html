@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos y Publicaciones — Empoderamiento Docente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & TOKENS ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --v: #6245A8; --v-d: #4E3488; --v-bg: #EDE8F8;
+  --c: #4891C0; --c-bg: #E0EFFB;
+  --bg: #F5F4FB; --bg-2: #EDEAF6;
+  --ink: #1A1528; --ink-2: #271E3A;
+  --muted: #6B6080; --faint: #B8AFCF;
+  --border: rgba(26,21,40,0.10); --white: #FDFCFF;
+  --fd: 'Cormorant Garamond', Georgia, serif;
+  --fs: 'Syne', system-ui, sans-serif;
+  --fb: 'DM Sans', system-ui, sans-serif;
+  --pad: clamp(20px, 5vw, 80px); --max: 1200px;
+}
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--fb); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--faint); border-radius: 3px; }
+
+/* ── NAV ────────────────────────────────────────────────────── */
+nav { position: fixed; top: 16px; left: 0; right: 0; z-index: 100; padding: 0 clamp(16px,3vw,40px); pointer-events: none; }
+.nav-pill { pointer-events: auto; max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; background: rgba(237,234,246,0.88); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(98,69,168,0.18); border-radius: 16px; padding: 0 8px 0 20px; height: 54px; box-shadow: 0 4px 20px rgba(98,69,168,0.12); }
+.nav-logo img { height: 40px; }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a { font-family: var(--fs); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 8px 14px; position: relative; transition: color 240ms; }
+.nav-links a::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 1.5px; background: var(--v); transform: scaleX(0); transform-origin: left; transition: transform 240ms cubic-bezier(0.4,0,0.2,1); }
+.nav-links a:hover { color: var(--v); }
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--v); }
+.nav-links a.nav-cta { background: var(--v); color: white; padding: 8px 22px; border-radius: 99px; text-transform: none; letter-spacing: 0.08em; transition: background 220ms, transform 220ms, box-shadow 220ms; }
+.nav-links a.nav-cta::after { display: none; }
+.nav-links a.nav-cta:hover { background: var(--v-d); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(98,69,168,0.4); color: white; }
+
+/* ── PAGE HERO ──────────────────────────────────────────────── */
+.page-hero { background: var(--bg); padding: clamp(120px,14vw,180px) var(--pad) clamp(72px,8vw,112px); text-align: center; border-bottom: 1px solid var(--border); }
+.page-hero-eyebrow { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--v); margin-bottom: 24px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+.page-hero-eyebrow::before, .page-hero-eyebrow::after { content: ''; width: 32px; height: 1.5px; background: var(--v); }
+.page-hero-h { font-family: var(--fd); font-size: clamp(52px,6vw,88px); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 28px; max-width: 900px; margin-left: auto; margin-right: auto; }
+.page-hero-sub { font-family: var(--fb); font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 56ch; margin: 0 auto; }
+
+/* ── PUBLICACIONES ──────────────────────────────────────────── */
+.pub-page { background: var(--white); padding: clamp(72px,8vw,112px) var(--pad); }
+.pub-page-inner { max-width: var(--max); margin: 0 auto; }
+.section-label { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--v); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.section-label::before { content: ''; width: 32px; height: 1.5px; background: var(--v); flex-shrink: 0; }
+.section-h { font-family: var(--fd); font-size: clamp(28px,3.5vw,44px); font-weight: 300; line-height: 1.15; color: var(--ink); margin-bottom: 12px; }
+.section-sub { font-family: var(--fb); font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--muted); margin-bottom: clamp(32px,4vw,48px); max-width: 52ch; }
+.pub-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+.pub-filter { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; padding: 7px 16px; border-radius: 99px; border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: color 200ms, border-color 200ms, background 200ms; }
+.pub-filter.active, .pub-filter:hover { background: var(--v-bg); color: var(--v); border-color: rgba(98,69,168,0.25); }
+.lib-entries { display: flex; flex-direction: column; }
+.lib-entry { display: grid; grid-template-columns: 48px 1fr 48px; gap: 20px; align-items: center; padding: clamp(20px,2.5vw,28px) 0; border-top: 1px solid var(--border); }
+.lib-entry:last-child { border-bottom: 1px solid var(--border); }
+.lib-entry-sym { font-family: var(--fd); font-size: 28px; font-weight: 300; color: var(--v); width: 44px; height: 44px; background: var(--v-bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.lib-entry-tag { font-family: var(--fs); font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--v); margin-bottom: 6px; }
+.lib-entry-title { font-family: var(--fd); font-size: clamp(14px,1.3vw,17px); font-weight: 500; color: var(--ink); line-height: 1.4; margin-bottom: 4px; }
+.lib-entry-author { font-family: var(--fb); font-size: 12px; color: var(--muted); }
+.lib-entry-year { font-family: var(--fs); font-size: 13px; font-weight: 600; color: var(--faint); text-align: right; }
+.pub-relime-link { margin-top: 28px; }
+.pub-relime-link a { font-family: var(--fs); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--v); border-bottom: 1.5px solid var(--v); padding-bottom: 2px; transition: opacity 200ms; }
+.pub-relime-link a:hover { opacity: 0.7; }
+@media (max-width: 600px) { .lib-entry { grid-template-columns: 44px 1fr; } .lib-entry-year { display: none; } }
+
+/* ── PROYECTOS ACTIVOS ──────────────────────────────────────── */
+.proyectos-activos { background: var(--bg); padding: clamp(72px,8vw,112px) var(--pad); border-top: 1px solid var(--border); }
+.proyectos-inner { max-width: var(--max); margin: 0 auto; }
+.proyectos-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.proyecto-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: clamp(24px,3vw,32px); display: flex; flex-direction: column; gap: 14px; transition: box-shadow 240ms; }
+.proyecto-card:hover { box-shadow: 0 10px 36px rgba(98,69,168,0.10); }
+.proyecto-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--v-bg); color: var(--v); font-family: var(--fs); font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; width: fit-content; }
+.proyecto-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--v); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+.proyecto-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+.proyecto-meta span { font-family: var(--fs); font-size: 9px; font-weight: 600; letter-spacing: 0.10em; text-transform: uppercase; color: var(--faint); }
+.proyecto-meta span:not(:last-child)::after { content: '·'; margin-left: 8px; }
+.proyecto-title { font-family: var(--fd); font-size: clamp(17px,1.6vw,22px); font-weight: 300; line-height: 1.3; color: var(--ink); }
+.proyecto-desc { font-family: var(--fb); font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
+@media (max-width: 900px) { .proyectos-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 540px) { .proyectos-grid { grid-template-columns: 1fr; } }
+
+/* ── RECURSOS DESCARGABLES ──────────────────────────────────── */
+.recursos { background: var(--bg-2); padding: clamp(72px,8vw,112px) var(--pad); }
+.recursos-inner { max-width: var(--max); margin: 0 auto; }
+.recursos-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+.recurso-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: clamp(20px,2.5vw,28px); display: flex; flex-direction: column; gap: 12px; transition: box-shadow 240ms; }
+.recurso-card:hover { box-shadow: 0 8px 28px rgba(98,69,168,0.09); }
+.recurso-icon { font-family: var(--fd); font-size: 32px; color: var(--v-bg); line-height: 1; }
+.recurso-badge { display: inline-block; background: var(--ink); color: rgba(255,255,255,0.6); font-family: var(--fs); font-size: 8px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; width: fit-content; }
+.recurso-title { font-family: var(--fs); font-size: 12px; font-weight: 700; color: var(--ink); line-height: 1.4; flex: 1; }
+.recurso-type { font-family: var(--fb); font-size: 11px; color: var(--faint); }
+@media (max-width: 900px) { .recursos-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 480px) { .recursos-grid { grid-template-columns: 1fr 1fr; } }
+
+/* ── CTA ────────────────────────────────────────────────────── */
+.cta { background: var(--v); padding: clamp(100px,12vw,180px) var(--pad); text-align: center; position: relative; overflow: hidden; }
+.cta-bg-text { position: absolute; font-family: var(--fd); font-style: italic; font-size: clamp(100px,14vw,220px); font-weight: 300; color: rgba(255,255,255,0.06); top: 50%; left: 50%; transform: translate(-50%,-50%); white-space: nowrap; pointer-events: none; user-select: none; }
+.cta-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.cta-tag { font-family: var(--fs); font-size: 10px; font-weight: 600; letter-spacing: 0.20em; text-transform: uppercase; color: rgba(255,255,255,0.60); margin-bottom: 28px; display: flex; align-items: center; justify-content: center; gap: 16px; }
+.cta-tag::before, .cta-tag::after { content: ''; width: 32px; height: 1px; background: rgba(255,255,255,0.30); }
+.cta-h { font-family: var(--fd); font-size: clamp(44px,5.5vw,88px); font-weight: 500; line-height: 1.06; letter-spacing: -0.025em; color: var(--white); margin-bottom: 24px; }
+.cta-h em { font-style: italic; color: rgba(255,255,255,0.85); }
+.cta-sub { font-family: var(--fb); font-size: 16px; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.68); max-width: 44ch; margin: 0 auto 48px; }
+.cta-btn { display: inline-block; background: var(--white); color: var(--v); padding: 16px 52px; border-radius: 99px; font-family: var(--fs); font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; box-shadow: 0 8px 40px rgba(0,0,0,0.20); transition: transform 220ms, box-shadow 220ms; }
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 48px rgba(0,0,0,0.28); }
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+footer { background: #0F0C1A; }
+.ft { max-width: var(--max); margin: 0 auto; padding: clamp(64px,8vw,100px) var(--pad) clamp(32px,4vw,48px); }
+.ft-top { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(32px,5vw,80px); margin-bottom: 64px; }
+.ft-logo { margin-bottom: 20px; }
+.ft-logo img { height: 48px; }
+.ft-desc { font-family: var(--fb); font-size: 14px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.35); max-width: 32ch; }
+.footer-nav a { display: block; font-family: var(--fb); font-size: 14px; font-weight: 300; color: rgba(255,255,255,0.45); margin-bottom: 12px; transition: color 180ms; }
+.footer-nav a:hover { color: rgba(255,255,255,0.85); }
+.ft-quote { font-family: var(--fd); font-style: italic; font-size: clamp(18px,1.8vw,24px); color: rgba(255,255,255,0.20); border-top: 1px solid rgba(255,255,255,0.08); padding-top: 40px; margin-bottom: 40px; line-height: 1.5; }
+.ft-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.ft-bottom p { font-family: var(--fb); font-size: 11px; color: rgba(255,255,255,0.15); }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .ft-top { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ───────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-pill">
+    <div class="nav-logo">
+      <img src="LOGO_PLACEHOLDER" alt="Empoderamiento Docente">
+    </div>
+    <div class="nav-links">
+      <a href="home-v7.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="proyectos.html" class="active">Proyectos</a>
+      <a href="contacto.html" class="nav-cta">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ── HERO INTERIOR ─────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="page-hero-eyebrow">Investigación y publicaciones</div>
+  <h1 class="page-hero-h">Conocimiento producido desde el aula.</h1>
+  <p class="page-hero-sub">Compartimos lo que investigamos. Artículos académicos, proyectos activos y recursos para docentes.</p>
+</section>
+
+<!-- ── PUBLICACIONES ACADÉMICAS ──────────────────────────────── -->
+<section class="pub-page">
+  <div class="pub-page-inner">
+    <div class="section-label">Publicaciones</div>
+    <h2 class="section-h">Artículos e investigaciones</h2>
+    <p class="section-sub">Producción académica del equipo en revistas y congresos de matemática educativa.</p>
+    <div class="pub-filters">
+      <div class="pub-filter active">Todo</div>
+      <div class="pub-filter">Álgebra</div>
+      <div class="pub-filter">Estadística</div>
+      <div class="pub-filter">Modelación</div>
+      <div class="pub-filter">Currículo</div>
+      <div class="pub-filter">Evaluación</div>
+    </div>
+    <div class="lib-entries">
+      <div class="lib-entry">
+        <div class="lib-entry-sym">∑</div>
+        <div>
+          <div class="lib-entry-tag">Artículo · RELIME</div>
+          <div class="lib-entry-title">Empoderamiento docente en matemáticas: concepciones y prácticas en aula</div>
+          <div class="lib-entry-author">Daniela Reyes · Karla Gomez</div>
+        </div>
+        <div class="lib-entry-year">2024</div>
+      </div>
+      <div class="lib-entry">
+        <div class="lib-entry-sym">π</div>
+        <div>
+          <div class="lib-entry-tag">Artículo · Educación Matemática</div>
+          <div class="lib-entry-title">Pensamiento algebraico temprano: una propuesta de desarrollo profesional</div>
+          <div class="lib-entry-author">Iván Pérez · Andrea Vergara · Judith Hernández</div>
+        </div>
+        <div class="lib-entry-year">2023</div>
+      </div>
+      <div class="lib-entry">
+        <div class="lib-entry-sym">∫</div>
+        <div>
+          <div class="lib-entry-tag">Ponencia · CIAEM</div>
+          <div class="lib-entry-title">Formación docente y práctica reflexiva en la enseñanza de la matemática</div>
+          <div class="lib-entry-author">Equipo Empoderamiento Docente · Conferencia Interamericana</div>
+        </div>
+        <div class="lib-entry-year">2023</div>
+      </div>
+      <div class="lib-entry">
+        <div class="lib-entry-sym">∇</div>
+        <div>
+          <div class="lib-entry-tag">Libro · Socioepistemología</div>
+          <div class="lib-entry-title">Empoderamiento docente y socioepistemología. Un estudio sobre la transformación educativa en Matemática</div>
+          <div class="lib-entry-author">Daniela Reyes</div>
+        </div>
+        <div class="lib-entry-year">2022</div>
+      </div>
+      <div class="lib-entry">
+        <div class="lib-entry-sym">Δ</div>
+        <div>
+          <div class="lib-entry-tag">Artículo · Revista Latinoamericana</div>
+          <div class="lib-entry-title">Modelación matemática como herramienta de desarrollo profesional docente</div>
+          <div class="lib-entry-author">Gabriela Buendía · Iván Pérez</div>
+        </div>
+        <div class="lib-entry-year">2022</div>
+      </div>
+      <div class="lib-entry">
+        <div class="lib-entry-sym">∞</div>
+        <div>
+          <div class="lib-entry-tag">Capítulo · Evaluación Formativa</div>
+          <div class="lib-entry-title">Evaluación formativa en matemática: del diseño a la implementación en el aula</div>
+          <div class="lib-entry-author">Marcela Cano · Luis Cabrera Chim</div>
+        </div>
+        <div class="lib-entry-year">2021</div>
+      </div>
+    </div>
+    <div class="pub-relime-link">
+      <a href="#">Ver todas las publicaciones en RELIME →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROYECTOS ACTIVOS ──────────────────────────────────────── -->
+<section class="proyectos-activos">
+  <div class="proyectos-inner">
+    <div class="section-label">En curso</div>
+    <h2 class="section-h">Proyectos activos</h2>
+    <p class="section-sub">Investigaciones en curso con instituciones educativas de la región.</p>
+    <div class="proyectos-grid">
+      <div class="proyecto-card">
+        <div class="proyecto-badge">En curso</div>
+        <div class="proyecto-meta">
+          <span>Argentina</span>
+          <span>2024–2026</span>
+        </div>
+        <div class="proyecto-title">Secuencias didácticas para álgebra temprana</div>
+        <p class="proyecto-desc">Diseño e implementación de secuencias para el desarrollo del pensamiento algebraico en primaria. Articulación entre investigación y práctica docente.</p>
+      </div>
+      <div class="proyecto-card">
+        <div class="proyecto-badge">En curso</div>
+        <div class="proyecto-meta">
+          <span>Chile</span>
+          <span>2025–2026</span>
+        </div>
+        <div class="proyecto-title">Pensamiento estadístico en primaria</div>
+        <p class="proyecto-desc">Estudio longitudinal sobre el desarrollo del razonamiento estadístico en estudiantes de 6.º grado. Acompañamiento a docentes participantes.</p>
+      </div>
+      <div class="proyecto-card">
+        <div class="proyecto-badge">En curso</div>
+        <div class="proyecto-meta">
+          <span>México</span>
+          <span>2023–2026</span>
+        </div>
+        <div class="proyecto-title">Acompañamiento curricular PIDPDM</div>
+        <p class="proyecto-desc">Revisión y actualización del diseño curricular de matemáticas en colaboración con Cinvestav-IPN. Programa de formación continua para docentes de secundaria.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RECURSOS DESCARGABLES ─────────────────────────────────── -->
+<section class="recursos">
+  <div class="recursos-inner">
+    <div class="section-label">Recursos</div>
+    <h2 class="section-h">Material para docentes</h2>
+    <p class="section-sub">Guías, marcos y protocolos producidos por nuestro equipo. Disponibles próximamente.</p>
+    <div class="recursos-grid">
+      <div class="recurso-card">
+        <div class="recurso-icon">📄</div>
+        <div class="recurso-badge">Próximamente</div>
+        <div class="recurso-title">Guía de secuencias didácticas</div>
+        <div class="recurso-type">PDF · Álgebra</div>
+      </div>
+      <div class="recurso-card">
+        <div class="recurso-icon">📄</div>
+        <div class="recurso-badge">Próximamente</div>
+        <div class="recurso-title">Marco de evaluación formativa</div>
+        <div class="recurso-type">PDF · Evaluación</div>
+      </div>
+      <div class="recurso-card">
+        <div class="recurso-icon">📄</div>
+        <div class="recurso-badge">Próximamente</div>
+        <div class="recurso-title">Cuaderno de actividades algebraicas</div>
+        <div class="recurso-type">PDF · Álgebra</div>
+      </div>
+      <div class="recurso-card">
+        <div class="recurso-icon">📄</div>
+        <div class="recurso-badge">Próximamente</div>
+        <div class="recurso-title">Protocolo de observación de clase</div>
+        <div class="recurso-type">PDF · Metodología</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────────────── -->
+<section class="cta">
+  <div class="cta-bg-text">investigación</div>
+  <div class="cta-inner">
+    <div class="cta-tag">Trabajemos juntos</div>
+    <h2 class="cta-h">Llevá la matemática educativa<br>a tu <em>institución.</em></h2>
+    <p class="cta-sub">Contanos qué necesitás y te proponemos un camino a medida. Procesos serios, decisiones lentas, resultados reales.</p>
+    <a href="contacto.html" class="cta-btn">Escribinos hoy →</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer>
+  <div class="ft">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="ft-logo"><img src="LOGO_PLACEHOLDER" alt="Empoderamiento Docente"></div>
+        <p class="ft-desc">Investigación y formación en matemática educativa para transformar el aula. Programa Interdisciplinario para el Desarrollo Profesional Docente en Matemáticas.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="home-v7.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+    <div class="ft-quote">"Todo error deja una enseñanza, toda enseñanza deja una experiencia, y toda experiencia deja una huella."</div>
+    <div class="ft-bottom">
+      <p>© 2025 Empoderamiento Docente</p>
+      <p>empoderamientodocente.org</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener('DOMContentLoaded', function() {
+  function reveal(trigger, targets, opts) {
+    ScrollTrigger.create({
+      trigger: trigger, start: 'top 78%', once: true,
+      onEnter: function() {
+        gsap.from(targets, Object.assign({
+          opacity: 0, y: 28, duration: 0.7, ease: 'power3.out', stagger: 0.09
+        }, opts || {}));
+      }
+    });
+  }
+
+  gsap.from(['.page-hero-eyebrow', '.page-hero-h', '.page-hero-sub'], {
+    opacity: 0, y: 24, duration: 0.7, ease: 'power3.out', stagger: 0.10, delay: 0.15
+  });
+
+  reveal('.pub-page', ['.section-label', '.section-h', '.section-sub', '.pub-filters'], { stagger: 0.08 });
+  reveal('.pub-page', '.lib-entry', { y: 16, stagger: 0.08 });
+  reveal('.proyectos-activos', ['.proyectos-activos .section-label', '.proyectos-activos .section-h', '.proyectos-activos .section-sub'], { stagger: 0.08 });
+  reveal('.proyectos-grid', '.proyecto-card', { y: 32, stagger: 0.10 });
+  reveal('.recursos', ['.recursos .section-label', '.recursos .section-h', '.recursos .section-sub'], { stagger: 0.08 });
+  reveal('.recursos-grid', '.recurso-card', { y: 24, stagger: 0.08 });
+  reveal('.cta', ['.cta-tag', '.cta-h', '.cta-sub', '.cta-btn'], { stagger: 0.10 });
+});
+</script>
+</body>
+</html>
